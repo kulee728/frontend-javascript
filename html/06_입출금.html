@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>입출금계좌</title>
+    <style>
+        .account *{
+            margin: 0;
+            padding: 0;
+        }
+        .account{
+            border:5px solid gray;
+            border-radius: 20px;
+            padding: 10px 50px;
+            width: 500px;
+            margin: 100px auto;
+        }
+        .row{
+            display:flex;
+            margin:20px;
+            padding:20px 0;
+        }
+        .input-row{
+            font-size: large;
+            
+        }
+        button{
+            border:none;
+            border-radius: 10px;
+            font-size: 30px;
+            font-weight: bolder;
+            margin: 0 30px;
+        }
+        .depositButton{
+            background-color: greenyellow;
+        }
+        .withdrawButton{
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <h1>입출금하기</h1>
+    <hr>
+    <div class="account">
+        <div class="row">
+            <h1>잔액 : <span id="output">0</span>원</h1>
+        </div>
+        <div class="row input-row">
+            <label>금액 : </label>
+            <input type="text" id="amount" value="0" style="text-align: right;" pattern="[0-9]+">
+            <span>원</span>
+        </div>
+        <br>
+        <div class="row">
+        <button onclick="depositButton()" class="depositButton"> 후원하기</button>
+        <button onclick="withdrawButton()" class="withdrawButton"> 뺏어버리기</button>
+        </div>
+        <br>
+    </div>
+    <script>
+        let savings=0;
+        function depositButton(){
+            const amount = parseInt(document.getElementById("amount").value);
+            if(isNaN(amount)||amount<0){
+                alert("올바른 금액을 입력하세요.");
+                document.getElementById("amount").value= 0;
+                return;
+            }
+
+            savings += amount;
+            document.getElementById("output").innerText = savings;
+        }   
+        function withdrawButton(){
+            const amount =  parseInt(document.getElementById("amount").value);
+            if(isNaN(amount)||amount<0){
+                alert("올바른 금액을 입력하세요.");
+                document.getElementById("amount").value= 0;
+                return;
+            }
+            if(savings <amount){
+                alert("그만큼은 뺏을 수 없습니다");
+                document.getElementById("amount").value= 0;
+                return;
+            }
+
+            savings -= amount
+            document.getElementById("output").value= savings;
+        }
+    </script>
+</body>
+</html>

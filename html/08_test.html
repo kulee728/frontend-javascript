@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lastPre</title>
+    <style>
+        .container{
+            border: 3px solid grey;
+            border-radius: 15px;
+            margin: 20px;
+            margin-top: 40px;
+            width: 500px;
+            box-shadow: 0 0 5px gray;
+            padding:30px
+        }
+        .container p{
+            padding :10px 0;
+        }
+        #buttonSignIn{
+            border: 3px solid blue;
+            color:blue;
+            font-weight: bolder;
+            border-radius: 5px;
+            background-color: white;
+            padding:0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>이름 : <input type="text" id="user_name" placeholder="예)김동그라미"></p>
+        <p>이메일 : <input type="email" id="user_email" placeholder="예) one@kh.kh"></p>
+        <p>비밀번호 : <input type="password" id="user_pwd"></p>
+        <p>비밀번호확인 : <input type="password" id="user_pwd_confirm"></p>
+        <br>
+        <button id="buttonSignIn" onclick="userSignIn()">회원가입</button>
+    </div>    
+</body>
+<script>
+    function userSignIn(){
+        const inputName = document.getElementById("user_name").value;
+        const inputEmail = document.getElementById("user_email").value;
+        const inputPwd = document.getElementById("user_pwd").value;
+        const inputPwdConfirm = document.getElementById("user_pwd_confirm").value;
+        if(inputPwd !=inputPwdConfirm){
+            alert("패스워드가 일치하지 않습니다. 다시 시도해주세요.");
+            document.getElementById("user_pwd_confirm").value=null;
+            return;
+        }
+        alert("회원가입이 완료되었습니다!\n회원 명: "+inputName+"\n회원 이메일: "+inputEmail);
+        document.getElementById("user_name").value=null;
+        document.getElementById("user_email").value=null;
+        document.getElementById("user_pwd").value=null;
+        document.getElementById("user_pwd_confirm").value=null;
+    }
+</script>
+</html>

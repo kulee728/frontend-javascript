@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h3> if 문</h3>
+    <pre>
+    <code>
+        if(조건식){
+            조건식이 true이면 실행되는 내용
+        }
+    </code>
+    </pre>
+    <input type="number" id="numberInput">
+    <button onclick="neturalTester()">양수인지 검사하기</button>
+    <h5>0과  100 사이 랜덤 숫자 발생 홀짝 판별하기</h5>
+    <button onclick="randomCheck()">확인하기</button>
+</body>
+<script>
+    const numberInput = document.getElementById("numberInput");
+    function neturalTester(){
+        const num = numberInput.value;
+        if(num>0){
+            console.log(num+"은 양수입니다.")
+        }
+        else{
+            console.log(num+"은 양수가 아닙니다.")
+        }
+    }
+    
+    function randomCheck(){
+        //홀짝 판별하기
+        const ran = Math.floor((Math.random()*101));
+        if(ran%2==0){
+            alert("랜덤 숫자는 '"+ ran+"', 짝수입니다.")
+        }
+        else{
+            alert("랜덤 숫자는 '"+ ran+"', 홀수입니다.")
+        }
+    }
+</script>
+</html>
