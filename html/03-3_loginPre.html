@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>로그인</title>
+
+    </head>
+    <body>
+        <h1> 연산자를 통한 로그인 </h1>
+        <pre>
+            - 입력 ID > member
+            - 입력 pwd > khzzang 이면 로그인 성공 alert
+        </pre>
+        <div>
+        <label>ID : <input type="text" id="inputId"></label><br>
+        <label>Password : <input type="password" id="inputPwd"></label><br>
+            <button onclick="tryLogin()">로그인 하기</button>
+        </div>
+        <script>
+            const idInputValue = document.getElementById("inputId");  //나중에 Jquery $("inputId")
+            const pwdInputValue = document.getElementById("inputPwd"); // html 안에서 가져온다
+            
+            function tryLogin(){
+                const id = idInputValue.value;
+                const pwd = pwdInputValue.value;
+                if(id=='member' && pwd=='khzzang'){
+                    alert("로그인 성공!");
+                }
+                else{
+                    alert("로그인 실패");
+                }
+            }
+        </script> 
+    </body>
+</html>

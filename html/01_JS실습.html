@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>테마(Theme) 변경</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>밝은 테마 /어두운 테마 변경하기</h1>
+    <button onclick="lightFontMode()">라이트모드</button>
+    <button onclick="darkFontMode()">다크모드</button>
+
+    <script>
+      /*
+        script 태그 > 맨 밑이나 맨 위로 주로 모아 쓴다.
+        //버튼 클릭의 경우 body 글자색, 배경색 변경
+        onclick : : 클릭했을때 실행되는 동작 정의 (함수 호출)
+    */
+
+      const body = document.querySelector("body"); // body 태그에 대한 변수 설정
+      function lightFontMode() {
+        // body 태그 내 style 변경 할 것임
+        // 태그 내부에 대한 정의는 참조연산자 '.' 을 사용한다
+
+        if (body.style.color == "black") {
+          alert("이미 라이트모드입니다.");
+        } else {
+          alert("라이트모드로 전환합니다.");
+          body.style.color = "black";
+          body.style.backgroundColor = "#f9f9f9";
+        }
+      }
+      function darkFontMode() {
+        if (body.style.color == "white") {
+          alert("이미 다크모드입니다.");
+        } else {
+          alert("다크모드로 전환합니다.");
+          body.style.color = "#f9f955";
+          body.style.backgroundColor = "black";
+        }
+      }
+    </script>
+  </body>
+</html>
