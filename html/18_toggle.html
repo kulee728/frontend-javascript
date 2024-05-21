@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Toggle에 대해</title>
+    <style>
+      #토글박스 {
+        width: 200px;
+        height: 200px;
+        background-color: aliceblue;
+        border: 2px solid lightpink;
+        text-align: center;
+        line-height: 200px;
+      }
+      button {
+        border: none;
+        margin: 20px;
+        padding: 10px 20px;
+        background-color: darkorange;
+      }
+      button:hover {
+        background-color: black;
+        color: white;
+      }
+      .hidden{
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>박스 보이고 숨기기</h1>
+    <div id="토글박스">글자보이기</div>
+    <!--버튼을 사용하지 않고 한 번만 슝슝 끝 할 때-->
+
+    <button onclick="보이기숨기기()">토글 클릭하기</button>
+  </body>
+  <script>
+    function 보이기숨기기() {
+      const 박스 = document.getElementById("토글박스");
+      console.log("aa");
+      if (박스.classList.contains("hidden")) {
+        박스.classList.remove("hidden");
+        console.log("bb");
+      } else {
+        박스.classList.add("hidden"); //이런걸 toggle 이라고 합니다.
+        console.log("cc");
+      }
+    }
+  </script>
+</html>

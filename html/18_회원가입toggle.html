@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입토글추가</title>
+    <style>
+        .container *{
+            margin:10px 0;
+        }
+        .hidden{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <div class= "container">
+    <label>이름 : <input type="text" id="user_name"></label>
+    <br><label>이메일 : <input type="email" id="user_email"></label>
+    <br><label>비밀번호 : <input type="password" id="user_pwd"></label>
+    <br><label>비밀번호확인 : <input type="password" id="user_pwd_confirm"></label>
+    <br><button onclick="agreementVisible()" >이용약관 확인</button>
+    <div class="agreement hidden" id="agreementToggleBox">이 부분은 이용 약관 입니다</div>
+    <br><button onclick="signIn()">회원가입</button>
+    </div>
+</body>
+<script>
+   // const nameCheck = false;
+   // const emailCheck = false;
+    function signIn(){
+        const name = document.getElementById("user_name").value;
+        const email = document.getElementById("user_email").value;
+        const password = document.getElementById("user_pwd").value;
+        const passwordConfirm = document.getElementById("user_pwd_confirm").value;
+        if(name=="고영희"||email=="ko@kh.kh"){
+            alert("이미 가입된 회원입니다.")
+        }
+        else{
+            if(password != passwordConfirm){
+                alert("비밀번호 확인이 일치하지 않습니다.");
+            }
+            else{
+                alert("가입이 완료되었습니다.\n<회원정보>\n이름 : "+name+"\n이메일 : "+email);
+            }
+        }
+    }
+    function agreementVisible(){
+        const agreeVis = document.getElementById("agreementToggleBox");
+        if(agreeVis.classList.contains("hidden")){
+            agreeVis.classList.remove("hidden");
+        }
+        else
+            agreeVis.classList.add("hidden");
+
+    }
+</script>
+</html>

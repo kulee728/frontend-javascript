@@ -11,6 +11,16 @@
         }
         .selectedOption{
             border:2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            padding: 10px 20px;
+        }
+        .selectedOption:hover{
+            
+            background-color: #333;
+            color: white;
+        
         }
     </style>
 </head>
@@ -25,31 +35,60 @@
             <div class="selectedOption" onClick="optionSelect('I')">조용하게 관찰한다</div>
         </div>
         </div>
-        <div id="Q2">
+        <div id="Q2" style="display: none;">
             <p>2. 주어진 일에 대해 당신은 어떤 모습인가요?</p>
-            <div onClick="optionSelect('S')">실제적이고 현실적이다</div>
-            <div onClick="optionSelect('N')">감정적이고 친화적이다</div>
+            <div class="selectedOptions">
+            <div class="selectedOption"onClick="optionSelect('S')">실제적이고 현실적이다</div>
+            <div class="selectedOption"onClick="optionSelect('N')">감정적이고 친화적이다</div>
         </div>
-        <div id="Q3">
+        </div>
+        <div id="Q3" style="display: none;">
             <p>3. 변화에 대처할 때, 당신은 어떻게 행동하나요?</p>
-            <div onClick="optionSelect('T')">논리적이고 분석적이다</div>
-            <div onClick="optionSelect('F')">창의적이고 비전을 갖는다</div>
+            <div class="selectedOptions">
+            <div class="selectedOption"onClick="optionSelect('T')">논리적이고 분석적이다</div>
+            <div class="selectedOption"onClick="optionSelect('F')">창의적이고 비전을 갖는다</div>
         </div>
-        <div id="Q4">
+        </div>
+        <div id="Q4"style="display: none;">
             <p>4. 계획을 세울때 당신은 어떤 방식을 사용하나요?</p>
-            <div onClick="optionSelect('J')">계획을 세우고 준비한다</div>
-            <div onClick="optionSelect('P')">융통성있게 대처한다</div>
+            <div class="selectedOptions">
+            <div class="selectedOption"onClick="optionSelect('J')">계획을 세우고 준비한다</div>
+            <div class="selectedOption"onClick="optionSelect('P')">융통성있게 대처한다</div>
         </div>
-        <div id="Q5">
+        </div>
+        <div id="Q5"style="display: none;">
             <p>5. 스트레스 상황에서 당신은 어떤 행동을 하나요?</p>
-            <div onClick="optionSelect('E')">사람들과 소통한다</div>
-            <div onClick="optionSelect('P')">혼자서 시간을보낸다</div>
+            <div class="selectedOptions">
+            <div class="selectedOption"onClick="optionSelect('E')">사람들과 소통한다</div>
+            <div class="selectedOption"onClick="optionSelect('P')">혼자서 시간을보낸다</div>
         </div>
-        <div id="checkResults">
-            <h3> 당신의 성격 : <span id="resultStringBox"></span></h3>
+        </div>
+        <div id="Q6"style="display: none;">
+            <p>6. 새로운 환경에서 당신은 어떻게 적응하나요?</p>
+            <div class="selectedOptions">
+            <div class="selectedOption"onClick="optionSelect('E')">적극적으로 새로운 사람과 교류한다.</div>
+            <div class="selectedOption"onClick="optionSelect('I')">혼자서 천천히 적응한다</div>
+        </div>
+    </div>
+        <div id="Q7"style="display: none;">
+            <p>7. 의사결정을 할 때, 당신은 어떤 방식을 선호하나요?</p>
+            <div class="selectedOptions">
+            <div class="selectedOption"onClick="optionSelect('T')">논리와 이성을 기반으로 결정한다</div>
+            <div class="selectedOption"onClick="optionSelect('F')">감정과 사람들을 고려하여 결정한다</div>
+        </div>
+    </div>
+        <div id="Q8"style="display: none;">
+            <p>8. 일정을 계획할 때, 당신은 어떤 방식을 사용하나요?</p>
+            <div class="selectedOptions">
+            <div class="selectedOption"onClick="optionSelect('J')">철저하게 계획하고 일정에 맞춘다</div>
+            <div class="selectedOption"onClick="optionSelect('P')">상황에 따라 유연하게 대처한다.</div>
+        </div>
+        </div>
+    </div>
+        <div id="checkResults"style="display: none;">
         </div>
 
-    </div>
+   
 </body>
 <script>
     let answerArr = [];
@@ -66,11 +105,28 @@
             currentQuestionDiv.style.display='none';
             nextQuestionDiv.style.display = 'block';
         }else{
-            checkResults();
+            currentQuestionDiv.style.display='none';
+            document.getElementById("checkResults").style.display = 'block';
+            document.getElementById("checkResults").textContent = checkResults();
+            document.getElementsByClassName("questions")[0].style.display='none';
+          //  checkResults();
         }
     }
     function checkResults(){
+        let resultString = '당신의 성격 유형은 ';
 
+        let MBTInumbering = {'E':0, 'I':0, 'N':0, 'S':0, 
+        'F':0, 'T':0, 'P':0, 'J':0}; //
+        for(let q in answerArr){
+            MBTInumbering[answerArr[q]]++; //키값으로 in은 순회한다.
+        }
+
+        resultString += MBTInumbering['E'] >= MBTInumbering['I'] ? 'E': 'I';
+        resultString += MBTInumbering['S'] >= MBTInumbering['N'] ? 'S': 'N';
+        resultString += MBTInumbering['F'] >= MBTInumbering['T'] ? 'F': 'T';
+        resultString += MBTInumbering['P'] >= MBTInumbering['J'] ? 'P': 'J';
+        console.log(resultString);
+        return resultString;
     }
 </script>
 </html>
