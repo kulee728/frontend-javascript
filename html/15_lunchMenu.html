@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>점시메뉴고르기</title>
+    <style>
+        button{
+            background-color: bisque;
+            border-radius: 5px;
+            border:none;
+            padding:10px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: black;
+            color:yellow;
+        }
+        ul{
+            list-style-type: none;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>점심 메뉴 골라보자</h1>
+    <div id="menu">
+        <h3>메뉴 리스트</h3>
+        <ul id="menuList">
+            <li>슬로우캘리</li>
+            <li>맥주창고</li>
+            <li>담소 순대국</li>
+            <li>빠바 샐러드</li>
+        </ul>
+        <button onclick="menuSelector()">메뉴 선택하기</button>
+        <button onclick="menuAdder()">메뉴 추가하기</button>
+
+        <script>
+            function menuSelector(){
+                const menuListElement = document.getElementById("menuList");
+                const menuItemList = document.getElementsByTagName("li");
+                console.log("아이템 들 :"+menuItemList);
+                const randomIndex = Math.floor(Math.random()*(menuItemList.length));
+                console.log("선택된 아이템 : "+menuItemList[randomIndex])
+                console.log("선택된 아이템 이름 : "+menuItemList[randomIndex].innerText)
+                alert("오늘 점심으로는 "+(menuItemList[randomIndex]).innerText+" 드시죠!");
+            }
+            function menuAdder(){
+                const menuListElement = document.getElementById("menuList");
+                const menuItemList = document.getElementsByTagName("li");
+                const inputMenu = prompt("새로운 메뉴를 입력해주세요")
+                if(inputMenu!=null){
+                    const newItem = document.createElement("li");
+                    // createElement : "요소 제작"
+                    // id와 class를 가진 값을 생성할 수 있는지 알아보자
+                    newItem.innerText = inputMenu;
+                    menuListElement.appendChild(newItem);
+                    // appendChild : child 목록에 요소를 추가한다.
+
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

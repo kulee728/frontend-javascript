@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>프롬프트 실습</title>
+</head>
+<body>
+    <h1>프롬프트 실습하기</h1>
+    <button onclick="promptView()">프롬프트버튼</button>
+</body>
+<script>
+    function promptView(){
+        const inputPwd = prompt("비밀번호를 입력하세요");
+        const savings = "3000";
+        if(inputPwd=="1234"){
+            alert("비밀번호가 일치합니다. 잔액은 $"+savings+" 입니다.")
+        }
+        else if(inputPwd !=null){
+            alert("비밀번호 불일치. 다시 입력해주세요.");
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>요소 접근방법</title>
+</head>
+<body>
+    <h1>요소 접근 방법</h1>
+    <h3>Document Object Model</h3>
+    <pre>
+        DOM
+        웹 문서(html) 의 모든 태그를 객체 형식으로 표현한 것
+        (html 태그(body, hN, pre, span 등)를 javaScript에서는 객체라고 표현)
+             html 태그 = javascript 객체
+        ex ) body 태그 = body 객체
+
+        -> html 문서 내에서 특정 태그에 접근 가능
+            특정  태그에 접근해서 속성값을 새로 만들거나 변경하거나 얻어올 수 있음   
+
+            document.getElementById("id이름값");
+            어떤 태그인지 알 수 는 없지만 id이름값으로 지정한 태그 정보를 가져온다는 의미
+        
+        - html 문서 내 특정 태그에 접근 가능
+        - getElementById("idName")
+        >id값으로 태그에 대한 접근
+    </pre>
+    <hr>
+    <h1>DOM의 태그 접근</h1>
+    <pre>
+        (만약 여러개인 경우 태그 배열 형태로 반환)
+
+        - id로 접근 getElementById("idName")
+        - class로 접근 getElementByClassName("className")
+        - name 으로 접근 : getElementByName("nameValue")
+    </pre>
+    <h3> 태그 속성 정리</h3>
+    <pre>
+        DOM을 이용, 태그를 접근하고 접근한 태그에는 추가/수정/제거 속성이 존재
+        textContent : 태그에서 자식 태그와 모든 테스트 내용을 보여준다
+                HTML 태그 무시하고 텍스트만 가져오거나 설정할 때 주로 사용
+                외부 공격 방지 기능이 존재
+                innerText와 같은 쓰임, 다른 방식으로 작동
+        innerText : 태그에서 자식태그의 모든 내용을 지칭
+                HTML 태그를 무시하고 텍스트만 가져오거나 설정
+                css를 새로 설정하여 적용하거나 추가적인 스타일 변경 필요할 떄
+                외부 공격 방지는 불가
+        
+        value : input 이나 textarea 등의 값을 가져오거나 설정
+            checkbox, radio, button 등 다양한 태그 값 처리 가능
+        
+        innerHTML : 이중 html
+        style
+        className 
+    </pre>
+</body>
+</html>

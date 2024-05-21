@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p id="ff">클릭해서 환영인사로 변경하세요</p>
+    <button onclick="dfas()">Click me</button>
+</body>
+<script>
+    function dfas(){
+        const sf = document.getElementById("ff");
+     //   if(sf.innerText=="hello, World!")
+     //       sf.innerText = "클릭해서 환영인사로 변경하세요.";
+     //   else
+        if(sf.innerText == "클릭해서 환영인사로 변경하세요")
+           sf.innerText = "hello, World!";
+        else
+            sf.innerText = "클릭해서 환영인사로 변경하세요";
+    }
+</script>
+</html>

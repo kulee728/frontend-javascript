@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>테마 변경</h1>
+    <button type="submit" id="bright" onclick="bright()">밝은 모드</button>
+    <button type="submit" id="dark"onclick="dark()">어두운 모드</button>
+    <button type="submit" id="pink"onclick="pink()">분홍 모드</button>
+    <button type="submit" id="green" onclick="green()">초록 모드</button>
+
+</body>
+<script>
+    function bright(){
+        const fontColor = document.querySelector("body");
+        fontColor.style.backgroundColor = "white";
+        fontColor.style.color = "black";
+    }
+    function dark(){
+        const fontColor = document.querySelector("body");
+        fontColor.style.backgroundColor = "black";
+        fontColor.style.color = "white";
+    }
+    function pink(){
+        const fontColor = document.querySelector("body");
+        fontColor.style.backgroundColor = "lightsteelblue";
+        fontColor.style.color = "lightpink";
+    }
+    function green(){
+        const fontColor = document.querySelector("body");
+        fontColor.style.backgroundColor = "lightgreen";
+        fontColor.style.color = "yellowgreen";
+    }
+</script>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>MBTI</title>
+    <style>
+        .selectedOptions{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .selectedOption{
+            border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>성격유형테스트</h1>
+    <div class="questions">
+        <p> 각 질문에 대해, 가장 본인에게 적절한 답변을 고르시오 </p>
+        <div id="Q1">
+            <p>1. 새로운 사람들과 만날 때 당신은 어떻게 접근하나요?</p>
+            <div class="selectedOptions">
+            <div class="selectedOption" onClick="optionSelect('E')">활발하게 접근한다</div>
+            <div class="selectedOption" onClick="optionSelect('I')">조용하게 관찰한다</div>
+        </div>
+        </div>
+        <div id="Q2">
+            <p>2. 주어진 일에 대해 당신은 어떤 모습인가요?</p>
+            <div onClick="optionSelect('S')">실제적이고 현실적이다</div>
+            <div onClick="optionSelect('N')">감정적이고 친화적이다</div>
+        </div>
+        <div id="Q3">
+            <p>3. 변화에 대처할 때, 당신은 어떻게 행동하나요?</p>
+            <div onClick="optionSelect('T')">논리적이고 분석적이다</div>
+            <div onClick="optionSelect('F')">창의적이고 비전을 갖는다</div>
+        </div>
+        <div id="Q4">
+            <p>4. 계획을 세울때 당신은 어떤 방식을 사용하나요?</p>
+            <div onClick="optionSelect('J')">계획을 세우고 준비한다</div>
+            <div onClick="optionSelect('P')">융통성있게 대처한다</div>
+        </div>
+        <div id="Q5">
+            <p>5. 스트레스 상황에서 당신은 어떤 행동을 하나요?</p>
+            <div onClick="optionSelect('E')">사람들과 소통한다</div>
+            <div onClick="optionSelect('P')">혼자서 시간을보낸다</div>
+        </div>
+        <div id="checkResults">
+            <h3> 당신의 성격 : <span id="resultStringBox"></span></h3>
+        </div>
+
+    </div>
+</body>
+<script>
+    let answerArr = [];
+    function optionSelect(identifier){
+        let currentQuestion = Object.keys(answerArr).length+1;
+        answerArr["Q"+currentQuestion] = identifier;        
+        
+        let currentQuestionDiv = document.getElementById("Q"+currentQuestion);
+        
+        
+        let nextQuestion = currentQuestion+1;
+        let nextQuestionDiv = document.getElementById("Q"+nextQuestion);
+        if(nextQuestionDiv){
+            currentQuestionDiv.style.display='none';
+            nextQuestionDiv.style.display = 'block';
+        }else{
+            checkResults();
+        }
+    }
+    function checkResults(){
+
+    }
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>폼 이름 실습</title>
+    <style>
+        #result{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>설문조사</h1>
+     <form id="userForm">
+        <label>이름 : </label>
+        <input type="text" id="name" name="user_name" required><br><br>
+        <label>설문 내용 : </label>
+        <textarea name="user_feedback" id="feedback" rows="4" cols="20" required></textarea> 
+        <br><br><button type="button" onclick="formSubmission()">제출</button>
+        <div id="result">
+            <h2>설문조사 결과</h2>
+            <p><strong>이름 : </strong><span id="nameOutput"></span></p>
+            <p><strong>설문내용 : </strong><span id="feedbackOutput"></span></p>
+        </div>
+    
+    
+    </form>
+    <script>
+        function formSubmission(){
+            const inputUserName = document.getElementById("name").value;
+            const inputUserFeedback = document.getElementById("feedback").value;
+            document.getElementById("nameOutput").textContent = inputUserName;
+            document.getElementById("feedbackOutput").textContent = inputUserFeedback;
+
+            document.getElementById("result").style.display = 'block';
+        }
+
+    </script>
+</body>
+</html>
