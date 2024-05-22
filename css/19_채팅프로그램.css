@@ -1,0 +1,48 @@
+#chat-container{
+    width: 300px;
+    height: 400px;
+    border: 2px solid #ccc;
+    display: flex;
+    justify-content: center; /*이건 뭘까 */
+    flex-direction: column; /*이건 뭘까 */
+}
+#chat-box{
+    flex:1; /*이건뭐지*/
+    padding:10px;
+    border-bottom:2px solid #ccc;
+}
+.message{
+    padding:5px;
+    margin-bottom:10px;
+    border-radius:5px;
+}
+.user-message{
+    background-color: aquamarine;
+    align-self: flex-end;
+}
+.bot-message{
+    background-color: lightpink;
+    /* 
+    align-self > 내부 태그들에 대한 정렬 상태 설정
+    flex 태그의 축 정렬을 설정
+    flex-end : 태그를 맨 끝 부분(아래쪽 또는 오른쪽)으로 정렬하기
+    flex-start : 태그를 맨 시작(위 or 왼쪽) 으로 정렬하기
+    */
+    align-self: flex-start; 
+}
+#input-box{
+    display: flex;
+}
+#input-box input{
+    flex :1;
+    padding: 10px;
+    border:none;
+    border-top:2px solid #ccc;
+}
+button{
+    padding:10px;
+    border:none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
