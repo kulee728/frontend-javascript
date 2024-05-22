@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #chat-container{
+            width: 300px;
+            height: 400px;
+            border: 2px solid #ccc;
+            display: flex;
+            justify-content: center; /*이건 뭘까 */
+            flex-direction: column; /*이건 뭘까 */
+        }
+        #chat-box{
+            flex:1; /*이건뭐지*/
+            padding:10px;
+            border-bottom:2px solid #ccc;
+        }
+        .message{
+            padding:5px;
+            margin-bottom:10px;
+            border-radius:5px;
+        }
+        .user-message{
+            background-color: aquamarine;
+            align-self: flex-end;
+        }
+        .bot-message{
+            background-color: lightpink;
+            /* 
+            align-self > 내부 태그들에 대한 정렬 상태 설정
+            flex 태그의 축 정렬을 설정
+            flex-end : 태그를 맨 끝 부분(아래쪽 또는 오른쪽)으로 정렬하기
+            flex-start : 태그를 맨 시작(위 or 왼쪽) 으로 정렬하기
+            */
+            align-self: flex-start; 
+        }
+        #input-box{
+            display: flex;
+        }
+        #input-box input{
+            flex :1;
+            padding: 10px;
+            border:none;
+            border-top:2px solid #ccc;
+        }
+        button{
+            padding:10px;
+            border:none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>채팅 프로그램</h1>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <div id="input-box">
+            <input type="text" id="user-input" placeholder="메세지를 입력하세요">
+            <button onclick="sendMessage()">보내기</button>
+        </div>
+    </div>
+</body>
+<script>
+
+    function sendMessage(){
+        const inputbox = document.getElementById("user-input");
+        const message = inputbox.value.trim(); //trim : 공백제거. 공백은 보내지 못하게 하자
+        //만약 빈칸으로 보낼 경우 방지
+        if(message=="") return;
+        //return 추가
+
+        메세지보이기(message,"user");
+        inputbox.value = ""; //input 값에 "" 새로운 값으로 ""를 넣어서 메세지내용 초기화
+        
+        setTimeout(() =>{
+            메세지보이기("저는 채팅 봇입니다.","bot");
+        },1000);
+
+    }
+    function 메세지보이기(message,sender){
+        const chatbox = document.getElementById("chat-box");
+        const messageElement = document.createElement("div");
+        
+        messageElement.classList.add("message",sender + "-message");
+        messageElement.textContent = message; //메세지 보이기
+        chatbox.appendChild(messageElement);
+    }
+
+
+</script>
+</html>

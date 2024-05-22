@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>채팅 봇 실습</title>
+    <style>
+        body{
+            display:flex;
+            flex-direction: column;
+            height:100vh;
+            align-items: center;
+            justify-content: center;
+        }
+        #chat-container{
+            width:300px;
+            height:400px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #chat-box{
+            flex:1; /*왼쪽 밑으로 내려주네 */
+            padding:10px;
+            border-radius: 5px;
+        
+           overflow-y: auto;
+        }
+        #input-box{
+            display: flex;
+        }
+        #input-box input{
+            flex:1;
+            padding:10px;
+            border:none;
+            border-top: 2px solid #ccc;
+        }
+        .message{
+            padding:5px;
+            margin-bottom:10px;
+            border-radius:5px;
+        }
+        .user-message{
+            text-align: right;
+            background-color: aquamarine;
+            display: flex;
+            float: right;
+            width:60%
+        }
+        .bot-message{
+            background-color: lightpink;
+            width:60%;
+            float:left;
+        }
+        #chat-box-toggle{
+            margin-top: 10px;
+        }
+        button{
+            padding:10px;
+            border:none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        #chat-box-toggle{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>챗봇 상담하기</h1>
+    <button id="chat-box-toggle" onclick="chatBoxToggle()">채팅 시작하기</button> 
+    <div id="chat-container" style="display: none;">
+        <div id="chat-box"></div>
+        <div id="input-box">
+            <input type="text" placeholder="메세지를 입력하세요" id="user-input">
+            <button onclick="sendMessage()">보내기</button>
+        </div>
+    </div>
+    </body>
+<script>
+    messageDisplay(
+        "안녕하세요, KH 상담 봇 입니다." 
+        +"원하시는 메뉴를 입력하세요.","bot"
+    )
+
+    function sendMessage(){
+        const userInputBox = document.getElementById("user-input");
+        const message = userInputBox.value.trim();
+        if(message=="") return;
+
+        messageDisplay(message,"user");
+        userInputBox.value = "";
+        setTimeout(() =>{
+            messageDisplay("저는 채팅 봇입니다.","bot");
+        },1000);
+    }
+    function messageDisplay(message,sender){
+        const chatBox = document.getElementById("chat-box");
+        const messageElement = document.createElement("div");
+
+        messageElement.classList.add("message",sender + "-message");
+        //클래스에 .messsage 랑 .user-message가 추가될 것이다
+        messageElement.textContent = message; //메세지 보이기
+        chatBox.appendChild(messageElement);
+    }
+    function chatBoxToggle(){
+        const chatContainer = document.getElementById("chat-container");
+        if(chatContainer.style.display=='none' ||chatContainer.style.display==''){
+            chatContainer.style.display='flex';
+            document.getElementById("chat-box-toggle").textContent = "채팅 끝내기";
+        }
+        else{
+            chatContainer.style.display='none';
+            document.getElementById("chat-box-toggle").textContent = "채팅 시작하기";
+        }
+    }
+</script>
+</html>
