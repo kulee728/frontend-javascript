@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>핸드폰</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#phoneSearchbox").on("input",function(){
+                const text = $(this).val();
+                $("#phoneList li").each(function(){
+                    const index = ($(this).text()).indexOf(text);
+                    console.log("index : "+index);
+                    console.log("(this).text : "+$(this).text());
+                    console.log("text : "+text);
+                    if(index===-1){
+                        $(this).hide();
+                    }
+                    else
+                        $(this).show();
+                }) 
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1>핸드폰 검색하기</h1>
+    <div class="container">
+        <input type="text" id="phoneSearchBox" placeholder="핸드폰을 검색해주세요">
+        <ul id="phoneList">
+            <li>Galaxy S21</li>
+            <li>iPhone 12</li>
+            <li>Google Pixel 5</li>
+            <li>OnePlus 9</li>
+            <li>Xiaomi Mi 11</li>
+            <li>LG Velvet</li>
+        </ul>
+    </div>
+</body>
+</html>
