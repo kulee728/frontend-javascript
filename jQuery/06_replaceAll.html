@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>replaceAll 예제</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        function 텍스트변경버튼(){
+            const 원조텍스트 = $("#원조텍스트").text(); //textContent를 가져올때
+            const 패턴 = /Hello/g; //g는 hello에 해당하는 모든 글자 찾기, 
+            //g가 없다면 가장 처음으로 찾은 패턴 위치
+
+            const 새로운패턴 = "Hi"; //Hello Hi로 교체하기
+
+            //모든 패턴을 새로운 패턴으로 교체 : replace
+            const 교체하기 = 원조텍스트.replace(패턴,새로운패턴);
+            //변경된 글자를 화면에 보여주기 : text
+            $("#원조텍스트").text(교체하기);
+        }
+        function 되돌리기버튼(){
+            const targetText = $("#원조텍스트").text();
+            const pattern = /Hi/g;
+            const newPattern = "Hello";
+            $("#원조텍스트").text(targetText.replace(pattern,newPattern));
+        }
+    </script>
+</head>
+<body>
+    <p id="원조텍스트">Hello world! Hello, Javascript! Hello, lunch!</p>
+    <button id="btn" onclick="텍스트변경버튼()">패턴 교체</button>
+    <button id="btnRestore" onclick="되돌리기버튼()">되돌리기</button>
+</body>
+</html>

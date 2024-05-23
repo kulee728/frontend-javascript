@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>- 
+     /*
+     jquery는 $() 로 표기한다.
+     */
+    $(document).ready(function(){
+        $("#toggleButton").click(function(){ //토글버튼클릭시
+            $("h1").toggle("slow"); //h1에 천천히 숨기기 보이기 적용
+        }); //이건 id 쓰는 방식.
+    })
+
+    </script>
+</head>
+<body>
+    <h1> 토글 보이기 숨기기</h1>
+    <button id="toggleButton">버튼</button>
+</body>
+</html>

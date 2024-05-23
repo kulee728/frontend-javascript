@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>정규식검사</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#inputId").on("input",function(){
+                //input 때 실행된다.
+                const inputId = $(this).val();
+                const regex = /^[a-z0-9]{6,16}$/;
+                if(regex.test(inputId)){
+                    $("#regexMsg").text("적합한 ID입니다.").css("color","green");
+                }
+                else
+                $("#regexMsg").text("부적합한 ID입니다.").css("color","red");
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <h1>아이디 정규식 검사</h1>
+    <label>아이디
+        <input type="text" id="inputId" required>
+        <br><p id="regexMsg"></p>
+    </label>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>온클릭jQuery</title>
+    <script 
+    type="text/javascript"
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    ></script>
+    <script>
+        function backgroundColorChanger(){
+            $("#helloId").css("background-color","silver");
+        }
+        function fontColorChanger(){
+            $("#helloId").css("color","lightblue");
+        }
+        function 초기화(){
+            $("#helloId").css("background","white");
+            $("#helloId").css("color","black");
+        }
+    </script>
+    <style>
+        #helloId{
+            width: 500px;
+            height:500px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="helloId">
+        안녕하세요
+    </div>
+    <button onclick="backgroundColorChanger()">배경색변경</button>
+    <button onclick="fontColorChanger()">글자색변경</button>
+    <button onclick="초기화()">초기화</button>
+</body>
+</html>

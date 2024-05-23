@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>이미지 토글</title>
+    <script type="text/javascript"
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+   ></script>
+   <script>
+    function imageDisplayChanger(){
+        $('#이미지').slideToggle();
+    }
+   </script>
+   <style>
+        img{
+            width:80%;
+            height:80%;
+        }
+   </style>
+</head>
+<body>
+    <button id="toggleImg" onclick="imageDisplayChanger()">이미지버튼</button>
+    <img id="이미지" src="pajamaMarley.jpg">
+</body>
+</html>

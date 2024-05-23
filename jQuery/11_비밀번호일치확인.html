@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>비밀번호일치확인</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#pwdConfirmInput").on("input",function(){
+               /* if($(this).val().length==0){
+                    $("#msg").text("비밀번호를 입력해주세요.");
+                    return;
+                }*/
+
+                if($(this).val() ==$("#pwdInput").val()){
+                    $("#msg").text("비밀번호가 일치합니다.");
+                } 
+                else
+                    $("#msg").text("비밀번호가 일치하지 않습니다.");
+            })
+        })
+
+        $(document).ready(function(){
+            $("#pwdInput").on("input",function(){
+                //input 때 실행된다.
+                const pwd = $(this).val();
+                const regex = /^[a-z]{8,}$/;
+                if(regex.test(pwd)){
+                    $("#regexMsg").text("비밀번호에 적합합니다.").css("color","green");
+                }
+                else
+                $("#regexMsg").text("비밀번호에 부적합합니다.").css("color","red");
+            })
+        })
+    </script>
+</head>
+<body>
+    <label>비밀번호</label>
+    <input type="password" id="pwdInput" required><br>
+    <br><p id="regexMsg"></p>
+    <label>비밀번호 확인</label>
+    <input type="password" id="pwdConfirmInput" required><br>
+    <p id="msg"></p>
+</body>
+</html>

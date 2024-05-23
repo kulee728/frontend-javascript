@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>토글</title>
+    <script src="jquery-3.7.1.min.js" type="text/javascript"></script>
+    <script>
+        function 문구숨기기(){
+            const element = $("#문구모음");
+          /*  if(element.css("display")=='none')
+                element.show();
+            else
+                element.hide();*/
+            element.toggle();
+        }
+    </script>
+</head>
+<body>
+    <div id="문구모음">
+        <h1>명언들</h1>
+        <p>노력에 집착하라. 숙명적인 노력을</p>
+        <p>할 수 있다고 믿는 사람은 결국 그렇게 된다.</p>
+        <p>당신이 포기할 때, 나는 시작한다.</p>
+    </div>
+    <button onclick="문구숨기기()">문구숨기기</button>
+</body>
+</html>

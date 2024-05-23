@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#inputField").on("input",function(){
+                $("#textDisplay").text($(this).val()); //value 값
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="text" id="inputField" placeholder="텍스트를 입력하세요">
+    <p>입력한 텍스트 : <span id="textDisplay"></span></p>
+</body>
+</html>

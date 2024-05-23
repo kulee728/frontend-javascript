@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>정규식검사</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#pwd").on("input",function(){
+                //input 때 실행된다.
+                const pwd = $(this).val();
+                const regex = /^[a-z]{8,}$/;
+                if(regex.test(pwd)){
+                    $("#regexMsg").text("비밀번호에 적합합니다.").css("color","green");
+                }
+                else
+                $("#regexMsg").text("비밀번호에 부적합합니다.").css("color","red");
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <h1>비밀번호 정규식 검사</h1>
+    <label>비밀번호
+        <input type="password" id="pwd" required>
+        <br><p id="regexMsg"></p>
+    </label>
+</body>
+</html>

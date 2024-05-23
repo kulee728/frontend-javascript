@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>마우스 올리기 게임</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".box").on("mouseenter",function(){
+                $(this).css("background-color",getRandomColor()); //this == 호출한 곳 (box)
+            })
+        })
+        function getRandomColor(){
+            const colorCode = '0123456789ABCDEF';
+            let color = '#'; //#을 맨 앞에 고정시킨 후 뒤에 색상코드 추가
+            for(let i = 0;i<6;i++){
+                console.log(i+"번째");
+                console.log("색상값 : "+color);
+                let index = Math.floor(Math.random()*16);
+                color += colorCode[index];
+            }
+            return color;
+        }
+    </script>
+    <style>
+        .box{
+            width:100px;
+            height: 100px;
+            background-color: red;
+            display: inline-block;
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+    <dv class="box"></dv>
+    <dv class="box"></dv>
+    <dv class="box"></dv>
+    <dv class="box"></dv>
+    <dv class="box"></dv>
+    <dv class="box"></dv>
+</body>
+</html>
+
+
+a = 3
+b = b + a
+
+b = b+3 
