@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>회원가입 유효성 검사</title>
+    <style>
+      .check {
+        color: green;
+      }
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    - 생년월일 한글(2~5자(단모음, 단자음 제외))
+    -->
+    <h2>회원가입</h2>
+    <form action="#" name="signUpForm">
+      <h3>생년월일</h3>
+      <input type="text" class="signup-input" id="inputPhone" name="user_name" />
+      <br />
+      <span class="input-result">올바른 생년월일 형식을 입력해주세요</span>
+    </form>
+    <script>
+      const checkList = {
+        inputPhone: false,
+      };
+      //유효성 여부를 체크하는 객체 생성
+      //나중에 비밀번호등등 넣어서 모두가 true 되면 회원가입 버튼 visible 되는 장치 생성
+
+      const inputPhone = document.querySelector("#inputPhone");
+      inputPhone.addEventListener("input", (e) => {
+        const value = e.target.value;
+        //e는 이벤트 객체
+        // e.target은 이벤트가 발생한 태그를 가리킨다.요기서는 input
+        // 따라서 value에는 입력된 생년월일이 들어갈 것이다.
+
+        const span = e.target.nextElementSibling.nextElementSibling;
+        //nextElementSibiling은 지정된 태그 다음으로 오는 태그를 지정한다.
+        //두번쓰면? 옆의 옆이니까 span.(br도 셉니다!)
+
+        //만약 입력이 아무것도 안되었다면 입력 X
+        if (value.trim().length == 0) {
+          span.textContent = "올바른 생년월일 형식을 입력해주세요(예. 1995-07-28)";
+          span.classList.remove("check", "error");
+          e.target.value = "";
+          checkList["inputPhone"] = false; //사람들이 내용을 지웠다면 다시 false 해준다.
+          return;
+        }
+        const koreanNamingRegex = /^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+        if(koreanNamingRegex.test(value)){
+            span.textContent = "유효한 형식의 생년월일입니다.";
+            span.classList.add("check");
+            span.classList.remove("error");
+            checkList["inputPhone"] = true;
+        } else{
+            span.textContent = "유효하지 않은 형식의 생년월일입니다.";
+            span.classList.remove("check");
+            span.classList.add("error");
+            checkList["inputPhone"] = false;
+        }
+        /* 한글 생년월일 을 위한 정규식 검사
+            /^ 정규식 시작
+            [가-휳] 모든 한글 사용 가능
+            {2,5} 2-5글자만 작성 가능
+            $/ 정규식 종료
+            */
+      });
+    </script>
+  </body>
+</html>
