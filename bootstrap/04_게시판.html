@@ -44,48 +44,44 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
-        <div class="row mt-4">
-            <h1>이미지 갤러리</h1>
+
+    <div class="container mt-5">
+        <h2>게시판</h2>
+        <div class="mb-3 d-flex justify-content-end">
+            <button class="btn btn-primary">새 글 작성</button>
         </div>
-        <div class="row mt-4"> <!-- mt4, mt5는 margin, 간격이 벌어진다 (클수록 더 큰 간격)-->
-            <div class="col-4">
-                <img src="pajamaMarley.jpg" class="img-fluid img-thumbnail">
-            </div>
-            <div class="col-8">
-                <h3>말링이</h3>
-                <p> 츄르를 좋아해</p>
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-8">
-                <img src="swimmingPartyMarley.jpg" class="img-fluid rounded">
-            </div>
-            <div class="col-4">
-                <h3>첨벙호감말리</h3>
-                <p> 말리는 물을 무서워해</p>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-2">
-                <img src="lovelyMarley.jpg" class="img-fluid rounded-circle">
-            </div>
-            <div class="col-2">
-                <h3>생일말리</h3>
-                <p> 말리는 어제 생일이었다<br>
-                산책을 좋아한다.</p>
-            </div>
-            <div class="col-2">
-                <img src="swimmingPartyMarley.jpg" class="img-fluid rounded">
-            </div>
-            <div class="col-2">
-                <img src="swimmingPartyMarley.jpg" class="img-fluid rounded">
-            </div>
-            <div class="col-2">
-                <img src="swimmingPartyMarley.jpg" class="img-fluid rounded">
-            </div>
-        </div>
+        <table class="table table-striped">
+            <thead>테이블헤더
+                <tr>
+                    <th>#</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>날짜</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>1</th>
+                    <td>첫 번째 게시글</td>
+                    <td>남궁길동</td>
+                    <td>2024-05-01</td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td>두 번째 게시글</td>
+                    <td>독고철수</td>
+                    <td>2024-05-02</td>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <td>세 번째 게시글</td>
+                    <td>선우철수</td>
+                    <td>2024-05-03</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+
     <footer class="footer mt-5">
         <div class="container" style="text-align: center;">
             <p>&copy; 2024 브랜드명, All Rigths Reserved</p>
@@ -97,4 +93,8 @@
     </footer>
 
 </body>
+
+
+
+
 </html>

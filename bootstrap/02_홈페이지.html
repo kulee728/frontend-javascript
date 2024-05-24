@@ -10,6 +10,18 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <style>
+      .card-img-top{
+        object-fit:cover;
+        /*
+        object-fit 은 이미지/비디오를 틀 안에 어떻게
+        설정할지 관련.
+        object-fit:cover >> 미디어 틀의 비율을 유지, 꽉 채우도록
+        */
+        height:200px
+      }
+
+    </style>
   </head>
   <body>
     <!-- 네비게이션 바-->
@@ -27,7 +39,7 @@
                     <a class="nav-link" href="#">게시판</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="이미지갤러리.html">이미지 갤러리</a>
+                    <a class="nav-link" href="03이미지갤러리.html">이미지 갤러리</a>
                 </li>
             </ul>
         </div>
@@ -38,11 +50,12 @@
 
     <div class="container">
       <!--전체 틀-->
-      <div class="row">
+      <div class="row m-5">
         <!-- 가로 -->
         <div class="col-md-4">
           <!-- col = col md중간사이즈 4칸 차지-->
-          <div class="card">
+          <div class="card text-bg-warning">
+            <div class="card-header">Header</div>
             <div class="card-body">
               <img src="swimmingPartyMarley.jpg" class="card-img-top"/>
               <h5 class="card-title">카드타이틀</h5>
@@ -83,7 +96,7 @@
           </div>
       </div>
 
-      <div class="row">
+      <div class="row m-5">
         <!-- 가로 -->
         <div class="col-md-4">
           <!-- col = col md중간사이즈 4칸 차지-->
