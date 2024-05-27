@@ -12,12 +12,17 @@
                 if(file){
                     const 파일읽기 = new FileReader();
                     파일읽기.onload = function(e){
+                        //onload > 파일로더로 파일 읽혔을때 실행하는 기능
                         $("#이미지보이기").attr("src",e.target.result).removeClass('d-none');
+                                        //attr > 속성설정변경
+                                        //e.target.result : 파일이 성공적으로 읽힌 다음 url 주소 가져오기
                     }
+                    //이미지 파일을 읽어와 사람들이 볼 수 있는 값으로 설정한 다음 보여주는 것
                     파일읽기.readAsDataURL(file);
                 }else{
                     $("#이미지보이기").addClass('d-none');
-                };
+                    //선택한 이미지가 없으면 다시 이미지 숨기기
+                }
             });
 
         });
