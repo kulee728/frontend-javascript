@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window 내장 객체</title>
+</head>
+<body>
+    <h1>window 내장 객체</h1>
+    <pre>
+        - 인터넷 창 자체를 나타내는 것
+        - document 위로 document의 부모객체
+        - window의 자식 객체
+        DOM (Document Object Model) : document (문서) >> 브라우저 눈으로 보이는 화면
+        BOM (Browser Object Model) : 브라우저에서 DOM 외적인 부분
+        location : 다른 페이지의 참조 용도
+             reload() : 현재 페이지 새로고침
+             replace() : 다른 페이지로 이동
+        history : 사용자가 방문한 페이지 기록 관리
+            back() : 이전페이지로 이동
+            forward() : 다음페이지로 이동
+            go() : 특정 페이지로 이동, 음수인경우 이전, 양수인경우 이후 페이지로
+        screen : 사용자 화면 정보
+            width() : 사용자 화면 가로길이
+            height(): 사용자 화면 높이
+        navigator : 화면에 대한 정보. 브라우저 종류, 운영체제
+        브라우저종류 : chrome, whale, edge..
+    </pre>
+    <h3>alert, prompt, console, setInterval, clearInterval, ... </h3>
+    <pre>
+        alert : window 내장 알림창
+        prompt : 사용자에게 입력 받는 용도의 알림창
+        console : 콘솔창 관련
+            .log() : 일반적인 메시지
+            .info() : 정보 출력
+            .warn() : 경고 출력, 노랑색 
+            .error() : 오류 출력, 빨간색
+            .clear() : 화면 내용 지우기
+        setInterval : 인터벌 명령어 설정
+        clearInterval : 인터벌 설정 해제
+    </pre>
+</body>
+</html>
